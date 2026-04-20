@@ -167,22 +167,7 @@ Do not ask for extra data unless it is likely to help future coaching decisions.
 
 ### Cooldown
 
-Write a brief cooldown recommendation based on session intensity and any active injury context. Include checkboxes for what was actually done and whether it helped — this is useful data for interpreting next-day recovery.
-
-```
-Recommendation: [e.g. HydroMassage or walk given today's volume]
-
-What you did
-- [ ] walk
-- [ ] HydroMassage
-- [ ] massage chair
-- [ ] skipped
-
-Did it help?
-- [ ] yes
-- [ ] idk
-- [ ] no
-```
+Write a brief cooldown recommendation based on session intensity and any active injury context. Include checkboxes for what was actually done and whether it helped — this is useful data for interpreting next-day recovery. Use the cooldown options listed in the relevant program day file.
 
 Do not include a Next-Day Check-In section. If there is something to flag for the next session, put it in Coach's Notes → Recommendations.
 
@@ -196,11 +181,7 @@ Do not include a Next-Day Check-In section. If there is something to flag for th
 
 ### Pain check
 
-- [ ] neck  
-- [ ] shoulder  
-- [ ] back  
-- [ ] elbow  
-- [ ] none  
+Use the body-part list from the relevant program day file for this workout type.
 
 ### Replace ambiguous fields
 
@@ -241,22 +222,7 @@ status: planned | completed
 ---
 ```
 
-For upper day sessions, also include top-set fields for each primary lift:
-```yaml
-bench_top:
-lat_pulldown_top:
-shoulder_press_top:
-row_top:
-```
-
-For lower day sessions:
-```yaml
-squat_top:
-rdl_top:
-leg_press_top:
-```
-
-Leave these fields blank when writing the plan. The user fills them in after completing the session. These feed the monthly index and replace the need to reconstruct working weights from log text.
+For lifting sessions, include top-set fields for the primary lifts as specified in the relevant program day file. Leave these fields blank when writing the plan — the user fills them in after completing the session. These feed the monthly index and replace the need to reconstruct working weights from log text.
 
 ---
 
@@ -271,5 +237,5 @@ Make sure:
 - [ ] Post-workout section includes effort, energy, pain check, best stimulus, most limited, and cooldown
 - [ ] Readiness section includes sleep hours and energy
 - [ ] Front matter includes all required fields with status: planned; date uses dots (YYYY.MM.DD) not dashes
-- [ ] Top-set fields are present (blank) for upper or lower day sessions
+- [ ] Top-set fields are present (blank) for lifting sessions, using the fields from the program day file
 - [ ] Mid-workout check-in is present only if there is an active injury or health concern; absent otherwise
