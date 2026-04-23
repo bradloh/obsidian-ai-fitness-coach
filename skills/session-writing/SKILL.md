@@ -219,8 +219,11 @@ date: YYYY.MM.DD
 workout_type: upper | lower | core | cardio | run | recovery
 format: gym | home | outdoor
 status: planned | completed
+rotation: "..."
 ---
 ```
+
+The `rotation` field is a short plain-English note placing this session in the program cycle — e.g. `"Upper (day 2; Legs complete)"` or `"Cardio — between Legs and Core"`. It must match the rotation field written in the monthly index entry for this session.
 
 For lifting sessions, include top-set fields for the primary lifts as specified in the relevant program day file. Leave these fields blank when writing the plan — the user fills them in after completing the session. These feed the monthly index and replace the need to reconstruct working weights from log text.
 

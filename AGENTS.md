@@ -33,6 +33,8 @@ If it appears that they didn't complete the workout, then talk to the user to de
 - The user skipped the workout.
   * Debrief why it was skipped and then go to Daily Planning. Handle the pending file as appropriate (e.g. move it to the monthly folder as a skipped session log, or delete it). If it's not clear, ask the user.
 
+Once the pending file situation is resolved, confirm the current rotation position: read the chart's Rotation section and cross-reference the index `rotation` fields if anything is unclear. If the cycle position is ambiguous, confirm with the user before planning. This sets shared context for whatever comes next.
+
 ## Debrief
 
 Start a conversation with the user about the completed workout session. As needed try to understand any injuries or difficulties. At the end of the file start a "Coach's Notes" section with the following subsections: "Facts" "Interpretation" and "Recommendations." Recommendations should have adjustments to the next time the user does that type of workout (i.e. upper, lower, core, etc). Update the session file's front matter: set status to `completed` and verify the top-set fields reflect what the user recorded during the session.
@@ -50,3 +52,21 @@ Next: Start a chat with the user to assess readiness to workout today. This can 
 Next: if a session file hasn't been written yet, write one and save it to `sessions/pending/`. This happens before the user works out as the file is also a workout plan that they follow. There is a session file writing skill in skills/ that must be used for this purpose. If today is a rest day, you can write a brief and simple log file instead explaining the justification for it. Previous logs can be used as a reference - if a previous log has something that's not mentioned in the session writing skill, assess whether that difference adds value, and if it does surface it to the user to see if they want to use it again for this session. If they do, recommend adding it to the skill file.
 
 After this, your job for the day is done unless the user has additional requests.
+
+---
+
+## Reference: Rotation Tracking Conventions
+
+Every session entry in the monthly `index.md` includes a `rotation` field describing its position in the program cycle. This applies to all session types — resistance, cardio, and recovery. Examples:
+
+- `rotation: Cycle start — Legs (day 1)`
+- `rotation: Cardio — between Legs and Upper`
+- `rotation: Upper (day 2; Legs complete)`
+- `rotation: Core (day 3; cycle complete — Legs + Upper done)`
+- `rotation: Rest — cycle end`
+
+`sessions/chart.md` contains a **Rotation** section that names the current cycle start date, lists completed resistance days, and states the recommended next step. This section is a convenience summary derived from the index — when rewriting the chart, reconstruct it from the index rather than extending what was there before. If the chart ever conflicts with the index, the index is authoritative.
+
+When updating the index (during Debrief or when logging a rest day), add the `rotation` field to the new entry.
+
+Sessions before 2026.04.19 do not have `rotation` fields; that is intentional.
